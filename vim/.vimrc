@@ -15,7 +15,14 @@ call pathogen#infect('/Users/Sam/.vim/bundle')
 " Edit vim config in a split pane. Also reload vim config without restarting.
 "noremap <leader>v :vsplit $MYVIMRC<cr>
 
-noremap <leader>u :source $MYVIMRC<cr>
+" Source the vimrc file after saving it to avoid reload   
+if has("autocmd")  
+ augroup myvimrchooks  
+  au!  
+  autocmd bufwritepost .vimrc source ~/.vimrc  
+ augroup END  
+endif
+
 
 " ------------------------------------------------------------------------------
 " General Setup
@@ -283,7 +290,7 @@ nnoremap <leader>ar :right<CR>
 nnoremap <leader>ac :center<CR>
 
 " ------------------------------------------------------------------------------
-" navigation
+" Navigation
 " ------------------------------------------------------------------------------
 
 " Get to home dir easier  <leader>hm is easier than :cd ~  
@@ -310,14 +317,6 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j  
 nmap <C-k> <C-w>k  
 nmap <C-l> <C-w>l
-
-" Source the vimrc file after saving it to avoid reload   
-if has("autocmd")  
- augroup myvimrchooks  
-  au!  
-  autocmd bufwritepost .vimrc source ~/.vimrc  
- augroup END  
-endif
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
