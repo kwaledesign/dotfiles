@@ -11,6 +11,7 @@ Here's my setup based off mediatemple's gs.
     scp ~/htdocs/dotfiles/basic_vim/.vimrc USER@ADDRESS.com:/~
 
 To include the solarized color-scheme:
+    
     cd ~
     mkdir .vim
     cd .vim
