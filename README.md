@@ -1,4 +1,4 @@
-# This is My Vim Config.  There Are Many Like, But This One is Mine.
+# This is My Vim Config.  There Are Many Like It, But This One is Mine.
 my personal vim config and dotfiles, tailored towards front-end development and
 Drupal. [Blog
 Article](http://kwaledesign.comblog/articles/vim-zsh-tmux-ide-front-end-drupal-development) 
