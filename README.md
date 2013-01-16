@@ -3,19 +3,25 @@ my personal vim config and dotfiles, tailored towards front-end development and
 Drupal. [Blog
 Article](http://kwaledesign.comblog/articles/vim-zsh-tmux-ide-front-end-drupal-development) 
 
-## Installation:
-
 There are two versions:
 * **Basic** - basic functional setup (only one file). Good for remote servers
   where edits are minimal.
 * **Full**  - full setup (includes all dotfiles and plugins). Good for
-  day-to-day development. 
+  day-to-day development.
 
-### Installing Basic Version:
-    git clone git://github.com/kwaledesign/dotfiles.git 
-
-### Installing Full Version:
+## Installation of Basic Setup:
+    cp basic .vimrc file to remote server root
+## Installation of Full Development IDE: 
+    cd ~/
     git clone git://github.com/kwaledesign/dotfiles.git
+Then, symlink files to appropriate locations
+    cd ~/ 
+    ln -s ~/dotfiles/.vimrc
+    ln -s ~/dotfiles/.tmux.conf
+    ln -s ~/dotfiles/.zshrc
+    ln -s ~/dotfiles/.ctags
+    ln -s ~/dotfiles/.gitignore
+    ln -s ~/dotfiles/.gitconfig
 
 ### Update to Latest Version
     git pull --rebase
