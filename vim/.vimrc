@@ -334,6 +334,9 @@ set sidescrolloff=10
 " Scroll sideways a character at a time, rather than a screen at a time.
 set sidescroll=1
 
+" Underscores denote words - very hand when using BEM syntax
+set iskeyword-=_
+
 " ------------------------------------------------------------------------------
 " Plugins (managed via pathogen https://github.com/tpope/vim-pathogen )
 " ------------------------------------------------------------------------------
