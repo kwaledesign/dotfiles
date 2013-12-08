@@ -1,7 +1,7 @@
 " Following lines added by drush vimrc-install on Sun, 23 Dec 2012 17:34:53 +0000.
 set nocompatible
-call pathogen#infect('/Users/Sam/.drush/vimrc/bundle')
-call pathogen#infect('/Users/Sam/.vim/bundle')
+" call pathogen#infect('/Users/Sam/.drush/vimrc/bundle')
+call pathogen#infect('/Users/sashley/.vim/bundle')
 " End of vimrc-install additions.
 
 " ------------------------------------------------------------------------------
@@ -74,7 +74,8 @@ set ruler
 set laststatus=2
 
 "Enable code folding  
-set foldenable
+" set foldenable
+set nofoldenable    " disable folding
 
 " ------------------------------------------------------------------------------
 " Auto-completion, Filetypes, and Syntax
