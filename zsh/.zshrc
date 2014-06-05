@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+
+export PATH=/usr/local/ruby/bin:/usr/local/mysql/bin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/local/apache2/bin:/usr/local/git/bin:/usr/local/wkhtmltopdf/bin:$PATH 
+
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -44,3 +48,9 @@ source $ZSH/oh-my-zsh.sh
 # Set Vim as default editor
 export EDITOR="vim"
 bindkey -v 
+
+# This loads RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# This loads nvm
+[ -s "/Users/sashley/.nvm/nvm.sh" ] && . "/Users/sashley/.nvm/nvm.sh" 
