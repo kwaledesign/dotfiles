@@ -4,6 +4,9 @@ set nocompatible
 call pathogen#infect('/Users/sashley/.vim/bundle')
 " End of vimrc-install additions.
 
+" ctrlp config
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 " ------------------------------------------------------------------------------
 " Vim Admin and Debugging 
 " ------------------------------------------------------------------------------
@@ -393,14 +396,12 @@ let NERDTreeHighlightCursorline=1
 " Use a single click to fold/unfold directories and a double click to open files
 let NERDTreeMouseMode=2
 
-
 " MiniBufferExplorer  https://github.com/fholgado/minibufexpl.vim
 " ------------------------------------------------------------------------------
 let g:miniBufExplSplitBelow= 0 " Put new window above current or on the left for vertical split                                          
 let g:miniBufExplMinSize = 1   " set the min height, default = 1, no effect unless max size also set
 let g:miniBufExplMaxSize = 0   " set the max height, defualt = 0, default allows window to resize to fit all buffers
 let g:miniBufExplorerMoreThanOne = 1 " auto open, set to 2 or more to only open for multiple buffers
-
 
 " tComment  https://github.com/vim-scripts/tComment
 " ------------------------------------------------------------------------------
@@ -418,9 +419,11 @@ noremap <leader>c :TComment<cr>
 
 " Command-T  https://github.com/wincent/Command-T
 " ------------------------------------------------------------------------------
+"  ****** issues with ruby and rvm so use ctrl-p plugin instead *********
+"
 " Preserve Command-T key mappings
-nnoremap <silent> <Leader>t :CommandT<CR>
-nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+"nnoremap <silent> <Leader>t :CommandT<CR>
+"nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
 
 " Powerline https://github.com/Lokaltog/vim-powerline
@@ -468,6 +471,12 @@ au FileType javascript call JavaScriptFold()
 " jquery.vim  https://github.com/nono/jquery.vim
 " ------------------------------------------------------------------------------
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+
+
+" emmet-vim
+" ------------------------------------------------------------------------------
+" re-map emmet trigger
+"let g:user_emmet_leader_key='<E-M>'
 
 
 " Vim Notes  https://github.com/xolox/vim-notes.git
