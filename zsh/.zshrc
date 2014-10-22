@@ -49,9 +49,11 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR="vim"
 bindkey -v 
 
-alias a3='cd $HOME/sites/abaqis3'
-alias a2='cd $HOME/sites/abaqis2'
+alias a3='cd $HOME/Sites/abaqis3'
+alias a2='cd $HOME/Sites/abaqis2'
 alias maria='cd /usr/local/Cellar/mariadb/10.0.13'
+alias kd='cd $HOME/Sites/kwaledesign.com'
+alias archetype='cd $HOME/Sites/Open-Source/Archetype'
 
 # This loads RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
