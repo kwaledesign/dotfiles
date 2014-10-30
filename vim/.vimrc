@@ -1,7 +1,7 @@
 " Following lines added by drush vimrc-install on Sun, 23 Dec 2012 17:34:53 +0000.
 set nocompatible
-" call pathogen#infect('/Users/Sam/.drush/vimrc/bundle')
-call pathogen#infect('/Users/sashley/.vim/bundle')
+"call pathogen#infect('/Users/sashley/.vim/bundle')
+call pathogen#infect('/Users/sashley/.vim/bundle/{}')
 " End of vimrc-install additions.
 
 " ctrlp config
@@ -448,6 +448,9 @@ let g:syntastic_javascript_checker = "jshint"
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['sass', 'scss'] }
+
+" config coffeelint:
+let g:syntastic_coffee_coffeelint_args = "--reporter --file ~/dotfiles/vim/syntax_checkers/coffee/coffeelint.json"
 
 
 " HTML5.vim  https://github.com/othree/html5.vim
