@@ -1,7 +1,7 @@
-# This is My Vim Config.  There Are Many Like It, But This One is Mine.
-my personal vim config and dotfiles, tailored towards front-end development and
-Drupal. [Blog
-Article](http://kwaledesign.comblog/articles/vim-zsh-tmux-ide-front-end-drupal-development) 
+This is My Vim Config.  There Are Many Like It, But This One is Mine.
+my personal vim config and dotfiles, tailored towards front-end development
+
+---
 
 There are two versions:
 * **Basic** - basic functional setup (only one file). Good for remote servers
@@ -28,28 +28,18 @@ Then, symlink files to appropriate locations
 
 ## Oh My Zsh!
 
-## TMUX
-
-## TMUXINATOR
-
-## ACK
-
 ## Vim Plugins
-* pathogen - manages the runtime path of the plugins 
-* NERDTree - Tree file explorer for vim
-* YankRing - History for yanks, changes, deletes
-* snipMate - Vim implimentation of TextMate's snippets
-* BufClose -
-* command-t -
-* ctrlp - 
-* drupal-snippets
+* [pathogen](https://github.com/tpope/vim-pathogen) - manages the runtime path of the plugins 
 * fugitive -
-* gist
-* html5
-* jquery
-* minibufexpl
+* [YankRing](https://github.com/vim-scripts/YankRing.vim) - History for yanks, changes, deletes
+* [BufClose](https://github.com/vim-scripts/BufClose.vim) - close current
+  buffer, or a buffer by name
+* command-t -
+* [ctrlp](https://github.com/kien/ctrlp.vim) - Fuzzy file, buffer, mru, tag, etc finder
+* [minibufexpl](https://github.com/fholgado/minibufexpl.vim) - Elegant buffer
+  explorer - takes very little screen space
 * nerdcommenter
-* nerdtree
+* [nerdtree](https://github.com/scrooloose/nerdtree) - A tree explorer plugin for vim.
 * scss-snippets
 * scss-syntax
 * snipmate-snippets
@@ -60,22 +50,11 @@ Then, symlink files to appropriate locations
 * tagbar-phpctags
 * tlib
 * vim-addon-mw-utils
-* vim-autoclose
-* vim-colors-solorized
-* vim-css
-* vim-easymotion
-* vim-indent-guides
-* vim-javascript-syntax
-* vim-matchit
-* vim-notes
-* vim-powerline
-* vim-scratch
-* vim-snipmate
-* vim-surround
-* webapi-vim
-* vim-repeat
-
-
-
-
+* [vim-autoclose](https://github.com/Townk/vim-autoclose) - enable an
+  auto-close chars feature
+* [vim-easymotion](https://github.com/Lokaltog/vim-easymotion) - Vim motion
+  on speed!
+* [vim-powerline](https://github.com/Lokaltog/vim-powerline) - better-looking, more functional vim statuslines. (still using despite depreciated to avoid the python dependency of [its successor](https://github.com/powerline/powerline) )
+* [vim-repeat](https://github.com/tpope/vim-repeat) - repeat.vim: enable
+  repeating supported plugin maps with "."
 
