@@ -60,3 +60,4 @@ alias archetype='cd $HOME/Sites/Open-Source/Archetype'
 
 # This loads nvm
 [ -s "/Users/sashley/.nvm/nvm.sh" ] && . "/Users/sashley/.nvm/nvm.sh" 
+

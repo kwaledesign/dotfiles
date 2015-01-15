@@ -499,7 +499,7 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 " EasyMotion  https://github.com/Lokaltog/vim-easymotion
 " ------------------------------------------------------------------------------
-" Make EasyMotion more yellow, less red
+" Override EasyMotion red with yellow
 hi clear EasyMotionTarget
 hi! EasyMotionTarget guifg=yellow
 
