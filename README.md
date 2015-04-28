@@ -1,34 +1,47 @@
-This is My Vim Config.  There Are Many Like It, But This One is Mine.
-my personal vim config and dotfiles, tailored towards front-end development
+# This is My Vim Config.  There Are Many Like It, But This One is Mine.
 
 ---
 
-There are two versions:
-* **Basic** - basic functional setup (only one file). Good for remote servers
-  where edits are minimal.
-* **Full**  - full setup (includes all dotfiles and plugins). Good for
-  day-to-day development.
+There are two versions, the full IDE and a basic version.
 
-## Installation of Basic Setup:
-    cp basic .vimrc file to remote server root
+## Basic VIM Installation:
+
+The basic vim setup is intended to be very light and portable. Included here is just the one .vimrc file without any plugins and one optional color scheme. This of course is the ideal setup when working on remote servers and for only minimal edits.
+
+Here's my setup based off mediatemple's gs.  
+
+    ssh USER@ADDRESS.com
+    cd ~
+    scp ~/htdocs/dotfiles/basic_vim/.vimrc USER@ADDRESS.com:/~
+
+To include the solarized color-scheme:
+
+    cd ~
+    mkdir .vim
+    cd .vim
+    scp ~/htdocs/dotfiles/basic_vim/colors
+
 ## Installation of Full Development IDE: 
     cd ~/
-    git clone git://github.com/kwaledesign/dotfiles.git
+    git clone git://github.com/kwaledesign/dotfiles.git ~/.vim
+
 Then, symlink files to appropriate locations
-    cd ~/ 
-    ln -s ~/dotfiles/.vimrc
-    ln -s ~/dotfiles/.tmux.conf
-    ln -s ~/dotfiles/.zshrc
-    ln -s ~/dotfiles/.ctags
-    ln -s ~/dotfiles/.gitignore
-    ln -s ~/dotfiles/.gitconfig
+
+    cd ~
+    git clone http://github.com/kwaledesign/dotfiles.git
+    ln -s ~/vim/.vimrc ~/.vimrc
+    cd ~/.vim
+    git submodule update --init
 
 ### Update to Latest Version
-    git pull --rebase
+    git pull
+
+### Update All Submodules (plugins)
+    git submodule foreach git pull origin master
 
 ## Oh My Zsh!
 
-## Vim Plugins
+## Vim Plugins Included
 * [pathogen](https://github.com/tpope/vim-pathogen) - manages the runtime path of the plugins 
 * fugitive -
 * [YankRing](https://github.com/vim-scripts/YankRing.vim) - History for yanks, changes, deletes
@@ -58,3 +71,6 @@ Then, symlink files to appropriate locations
 * [vim-repeat](https://github.com/tpope/vim-repeat) - repeat.vim: enable
   repeating supported plugin maps with "."
 
+## Extra Goodies:
+[trash](https://github.com/sindresorhus/trash) - don't rm urself
+[vtop](https://www.npmjs.com/package/vtop) - cli realtime performance monitoring of your machine
