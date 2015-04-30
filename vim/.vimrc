@@ -1,11 +1,11 @@
-" Following lines added by drush vimrc-install on Sun, 23 Dec 2012 17:34:53 +0000.
 set nocompatible
-"call pathogen#infect('/Users/sashley/.vim/bundle')
-call pathogen#infect('/home/vagrant/.vim/bundle/{}')
+execute pathogen#infect()
+"call pathogen#infect('bundle/*')
 " End of vimrc-install additions.
 
 " ctrlp config
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
+"set runtimepath^=~/.vim
 
 " ------------------------------------------------------------------------------
 " Vim Admin and Debugging 
