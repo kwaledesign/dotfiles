@@ -36,14 +36,14 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git node npm bower aws bundler coffee compleat copydir copyfile extract git-extras history rvm vi-mode vagrant heroku)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
 # Tmuxinator 
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator 
+#[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator 
 
 # Set Vim as default editor
 export EDITOR="vim"
@@ -59,5 +59,8 @@ alias archetype='cd $HOME/Sites/Open-Source/Archetype'
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # This loads nvm
-[ -s "/Users/sashley/.nvm/nvm.sh" ] && . "/Users/sashley/.nvm/nvm.sh" 
+#[ -s "/Users/sashley/.nvm/nvm.sh" ] && . "/Users/sashley/.nvm/nvm.sh" 
+
+# include Z, yo
+#. ~/z.sh
 
