@@ -135,7 +135,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 
 " omnicompletion : words
-inoremap <leader><Space> <C-x><C-o>
+inoremap <leader><Space><Space> <C-x><C-o>
 
 " Set scss file type, treat sass as scss
 au BufRead,BufNewFile *.scss set filetype=scss
