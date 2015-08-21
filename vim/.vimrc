@@ -453,3 +453,19 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 hi clear EasyMotionTarget
 hi! EasyMotionTarget guifg=yellow
 
+" BufferLine
+" ------------------------------------------------------------------------------
+let g:bufferline_echo = 1 " automatically echo to the command bar
+let g:bufferline_active_buffer_left = '[' " left side buffer separator symbol
+let g:bufferline_active_buffer_right = ']' " right side buffer separator symbol
+let g:bufferline_modified = '+' " symbol to denote that a buffer is modified
+let g:bufferline_show_bufnr = 1 " show buffer numbers
+
+
+" denotes the highlight group for inactive buffers when used in the statusline
+let g:bufferline_inactive_highlight = 'StatusLineNC'
+" denotes the highlight group for the active buffer when used in the statusline
+let g:bufferline_active_highlight = 'StatusLine'
+" denotes whether the active highlight should be used when there is only one
+let g:bufferline_solo_highlight = 0
+
