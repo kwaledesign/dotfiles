@@ -7,9 +7,6 @@
 [submodule "vim/.vim/bundle/YankRing.vim"]
 	path = vim/.vim/bundle/YankRing.vim
 	url = https://github.com/vim-scripts/YankRing.vim.git
-[submodule "vim/.vim/bundle/minibufexpl.vim"]
-	path = vim/.vim/bundle/minibufexpl.vim
-	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "vim/.vim/bundle/nerdtree"]
 	path = vim/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -19,9 +16,6 @@
 [submodule "vim/.vim/bundle/vim-easymotion"]
 	path = vim/.vim/bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule "vim/.vim/bundle/vim-powerline"]
-	path = vim/.vim/bundle/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "vim/.vim/bundle/vim-repeat"]
 	path = vim/.vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
@@ -34,3 +28,48 @@
 [submodule "z"]
 	path = z
 	url = https://github.com/rupa/z
+[submodule "vim/.vim/bundle/syntastic"]
+	path = vim/.vim/bundle/syntastic
+	url = git@github.com:scrooloose/syntastic.git
+[submodule "vim/.vim/bundle/vim-airline"]
+	path = vim/.vim/bundle/vim-airline
+	url = git@github.com:bling/vim-airline.git
+[submodule "vim/.vim/bundle/vim-surround"]
+	path = vim/.vim/bundle/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "vim/.vim/bundle/nerdcommenter"]
+	path = vim/.vim/bundle/nerdcommenter
+	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "vim/.vim/bundle/vim-eunuch"]
+	path = vim/.vim/bundle/vim-eunuch
+	url = git@github.com:tpope/vim-eunuch.git
+[submodule "vim/.vim/bundle/ack.vim"]
+	path = vim/.vim/bundle/ack.vim
+	url = git@github.com:mileszs/ack.vim.git
+[submodule "vim/.vim/bundle/vim-fugitive"]
+	path = vim/.vim/bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "vim/.vim/bundle/indentLine"]
+	path = vim/.vim/bundle/indentLine
+	url = git@github.com:Yggdroot/indentLine.git
+[submodule "vim/.vim/bundle/vim-bufferline"]
+	path = vim/.vim/bundle/vim-bufferline
+	url = git@github.com:bling/vim-bufferline.git
+[submodule "vim/.vim/bundle/vim-signify"]
+	path = vim/.vim/bundle/vim-signify
+	url = git@github.com:mhinz/vim-signify.git
+[submodule "vim/.vim/bundle/vim-notes"]
+	path = vim/.vim/bundle/vim-notes
+	url = git@github.com:xolox/vim-notes.git
+[submodule "vim/.vim/bundle/emmet-vim"]
+	path = vim/.vim/bundle/emmet-vim
+	url = git@github.com:mattn/emmet-vim.git
+[submodule "vim/.vim/bundle/vitality.vim"]
+	path = vim/.vim/bundle/vitality.vim
+	url = git@github.com:sjl/vitality.vim.git
+[submodule "vim/.vim/bundle/vimux"]
+	path = vim/.vim/bundle/vimux
+	url = git@github.com:benmills/vimux.git
+[submodule "vim/.vim/bundle/grep.vim"]
+	path = vim/.vim/bundle/grep.vim
+	url = git@github.com:vim-scripts/grep.vim.git
