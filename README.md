@@ -4,7 +4,7 @@
 
 ---
 
-Dotfiles, inlcuding my .vimrc, are managed with git and symlinks. Vim plugins are handled with [Pathogen](https://github.com/tpope/vim-pathogen) and git-submodules.
+Dotfiles, inlcuding my .vimrc, are managed with git and symlinks. Vim plugins are handled with [Pathogen](https://github.com/tpope/vim-pathogen) and [git-submodules](http://git-scm.com/docs/git-submodule).
 
 See also my [Vagrant Ubuntu Node VM](https://github.com/kwaledesign/vagrant_ubuntu_node_vm) and environment provisioning scripts that include other goodies like [vifm](http://vifm.info/), [tig](http://jonas.nitro.dk/tig/), etc...
 
@@ -92,4 +92,5 @@ sudo chmod 777 -R ~/vim/tmp
 * [Vimux](https://github.com/benmills/vimux)
 * [vim grep](https://github.com/vim-scripts/grep.vim) 
 
+rember to run: `:Helptags`
 
