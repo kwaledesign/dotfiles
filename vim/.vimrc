@@ -64,9 +64,6 @@ imap <leader>jj <esc>
 " Number lines 
 set number
 
-" Relative line numbering  
-" set relativenumber
-
 "Show command in bottom right portion of the screen  
 set showcmd
 
@@ -341,6 +338,8 @@ set sidescroll=1
 " Underscores denote words - very hand when using BEM syntax
 set iskeyword-=_
 
+
+
 " ------------------------------------------------------------------------------
 " Plugins (managed via pathogen https://github.com/tpope/vim-pathogen )
 " ------------------------------------------------------------------------------
@@ -396,18 +395,6 @@ let NERDTreeHighlightCursorline=1
 " Use a single click to fold/unfold directories and a double click to open files
 let NERDTreeMouseMode=2
 
-" MiniBufferExplorer  https://github.com/fholgado/minibufexpl.vim
-" ------------------------------------------------------------------------------
-let g:miniBufExplSplitBelow= 0 " Put new window above current or on the left for vertical split                                          
-let g:miniBufExplMinSize = 1   " set the min height, default = 1, no effect unless max size also set
-let g:miniBufExplMaxSize = 0   " set the max height, defualt = 0, default allows window to resize to fit all buffers
-let g:miniBufExplorerMoreThanOne = 1 " auto open, set to 2 or more to only open for multiple buffers
-
-" tComment  https://github.com/vim-scripts/tComment
-" ------------------------------------------------------------------------------
-"Faster shortcut for T-comment plugin
-noremap <leader>c :TComment<cr>
-
 
 " vim-indent-guides https://github.com/nathanaelkane/vim-indent-guides
 " ------------------------------------------------------------------------------
@@ -415,22 +402,6 @@ noremap <leader>c :TComment<cr>
 "let g:indent_guides_auto_colors = 0
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-
-
-" Command-T  https://github.com/wincent/Command-T
-" ------------------------------------------------------------------------------
-"  ****** issues with ruby and rvm so use ctrl-p plugin instead *********
-"
-" Preserve Command-T key mappings
-"nnoremap <silent> <Leader>t :CommandT<CR>
-"nnoremap <silent> <Leader>b :CommandTBuffer<CR>
-
-
-" Powerline https://github.com/Lokaltog/vim-powerline
-" ------------------------------------------------------------------------------
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_theme = 'solarized256'
-let g:Powerline_colorscheme ='solarized256'
 
 
 " Syntastic  https://github.com/scrooloose/syntastic
@@ -451,18 +422,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 " config coffeelint:
 let g:syntastic_coffee_coffeelint_args = "--reporter --file ~/dotfiles/vim/syntax_checkers/coffee/coffeelint.json"
-
-
-" HTML5.vim  https://github.com/othree/html5.vim
-" ------------------------------------------------------------------------------
-"Disable event-handler attributes support:
-"let g:html5_event_handler_attributes_complete = 0
-"Disable RDFa attributes support:
-"let g:html5_rdfa_attributes_complete = 0
-"Disable microdata attributes support:
-"let g:html5_microdata_attributes_complete = 0
-"Disable WAI-ARIA attribute support:
-"let g:html5_aria_attributes_complete = 0
 
 
 " vim-javascript-syntax  https://github.com/jelera/vim-javascript-syntax
@@ -488,54 +447,9 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 :let g:notes_directory = '~/.vim/tmp/notes'
 :let g:notes_suffix = '.txt'
 
-
-" Snipmate  https://github.com/garbas/vim-snipmate
-" ------------------------------------------------------------------------------
-" allow multiple snippets files to be used for a filetype without changing the filetype
-"let g:snipMate = {}
-"let g:snipMate.scope_aliases = {}
-"let g:snipMate.scope_aliases['scss'] = 'scss'
-
-
 " EasyMotion  https://github.com/Lokaltog/vim-easymotion
 " ------------------------------------------------------------------------------
 " Override EasyMotion red with yellow
 hi clear EasyMotionTarget
 hi! EasyMotionTarget guifg=yellow
 
-
-" Tagbar  https://github.com/majutsushi/tagbar
-" ------------------------------------------------------------------------------
-" set ctags location
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'  
-" set phpctags location (https://github.com/techlivezheng/tagbar-phpctags)          
-let g:tagbar_phpctags_bin = '/usr/local/bin/ctags'        
-
-" change tagbar's default width
-let g:tagbar_width = 30
-" remap tagbar trigger
-map <Leader>y :TagbarToggle
-" open Tagbar automatically on Vim startup
-"autocmd VimEnter * nested :TagbarOpen   
-" open Tagbar only if current file/files is supported             
-"autocmd VimEnter * nested :call tagbar#autoopen(1)    
-
-" Enable CSS in Tagbar
-let g:tagbar_type_css = {
-\ 'ctagstype' : 'css',
-  \ 'kinds' : [
-    \ 'c:classes',
-    \ 'o:objects',
-    \ 't:tags'
-    \ ]
-\ }
-
-" Enable Markdown in Tagbar
-let g:tagbar_type_markdown = {
-	\ 'ctagstype' : 'markdown',
-	\ 'kinds' : [
-		\ 'h:Heading_L1',
-		\ 'i:Heading_L2',
-		\ 'k:Heading_L3'
-	\ ]
-\ }
