@@ -406,6 +406,9 @@ let NERDTreeMouseMode=2
 
 " Syntastic  https://github.com/scrooloose/syntastic
 " ------------------------------------------------------------------------------
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['sass', 'scss'] }
 "  recommended settings:
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -414,7 +417,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 " mark syntax errors with :signs
 let g:syntastic_enable_signs=1
 " automatically jump to the error when saving the file
@@ -426,16 +428,20 @@ let g:syntastic_auto_loc_list=1
 " allow multiple checkers to report errors on a single file
 let g:syntastic_aggregate_errors = 1
 " config coffeelint:
+let g:syntastic_coffee_checker = "coffeelint"
 let g:syntastic_coffee_coffeelint_args = "--reporter --file ~/dotfiles/vim/syntax_checkers/coffee/coffeelint.json"
 " config eslint:
 let g:syntastic_javascript_checker = "eslint"
 let g:syntastic_javascript_eslint_args = "--reporter --file ~/dotfiles/eslint/.eslintrc"
+" config csslint:
+let g:syntastic_css_checker = "csslint"
+let g:syntastic_css_csslint_args = "--reporter --file ~/dotfiles/vim/syntax_checkers/css/.csslintrc"
 
 
+" JS Library Syntax https://github.com/othree/javascript-libraries-syntax.vim
+" ------------------------------------------------------------------------------
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_angularuirouter = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_angularui = 1
