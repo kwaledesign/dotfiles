@@ -76,3 +76,6 @@
 [submodule "vim/.vim/bundle/javascript-libraries-syntax.vim"]
 	path = vim/.vim/bundle/javascript-libraries-syntax.vim
 	url = git@github.com:othree/javascript-libraries-syntax.vim.git
+[submodule "vim/.vim/bundle/vim-devicons"]
+	path = vim/.vim/bundle/vim-devicons
+	url = git@github.com:ryanoasis/vim-devicons.git
