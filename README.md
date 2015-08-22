@@ -91,6 +91,6 @@ sudo chmod 777 -R ~/vim/tmp
 * [Vitality](http://github.com/sjl/vitality.vim) - make tmux play nicely with vim and iterm2
 * [Vimux](https://github.com/benmills/vimux)
 * [vim grep](https://github.com/vim-scripts/grep.vim) 
-
+* [JavaScript Library Syntax](https://github.com/othree/javascript-libraries-syntax.vim
 rember to run: `:Helptags`
 
