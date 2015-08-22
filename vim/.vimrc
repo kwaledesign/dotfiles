@@ -406,62 +406,81 @@ let NERDTreeMouseMode=2
 
 " Syntastic  https://github.com/scrooloose/syntastic
 " ------------------------------------------------------------------------------
-"mark syntax errors with :signs
+"  recommended settings:
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" mark syntax errors with :signs
 let g:syntastic_enable_signs=1
-"automatically jump to the error when saving the file
+" automatically jump to the error when saving the file
 let g:syntastic_auto_jump=0
-"show the error list automatically
+" show the error list automatically
 let g:syntastic_auto_loc_list=1
-"don't care about warnings
+" don't care about warnings
 "let g:syntastic_quiet_warnings=0
-
-let g:syntastic_javascript_checker = "jshint"
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['sass', 'scss'] }
-
+" allow multiple checkers to report errors on a single file
+let g:syntastic_aggregate_errors = 1
 " config coffeelint:
 let g:syntastic_coffee_coffeelint_args = "--reporter --file ~/dotfiles/vim/syntax_checkers/coffee/coffeelint.json"
+" config eslint:
+let g:syntastic_javascript_checker = "eslint"
+let g:syntastic_javascript_eslint_args = "--reporter --file ~/dotfiles/eslint/.eslintrc"
 
 
-" vim-javascript-syntax  https://github.com/jelera/vim-javascript-syntax
-" ------------------------------------------------------------------------------
-" enable javascript code folding
-au FileType javascript call JavaScriptFold()
-
-
-" jquery.vim  https://github.com/nono/jquery.vim
-" ------------------------------------------------------------------------------
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_angularuirouter = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_angularui = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_requirejs = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_jasmine = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_chai = 1
 
 " emmet-vim
 " ------------------------------------------------------------------------------
 " re-map emmet trigger
 "let g:user_emmet_leader_key='<E-M>'
 
-
 " Vim Notes  https://github.com/xolox/vim-notes.git
 " ------------------------------------------------------------------------------
 " location of notes directory
-:let g:notes_directory = '~/.vim/tmp/notes'
-:let g:notes_suffix = '.txt'
+:let g:notes_directory = '~/.vim/tmp/notes/'
+:let g:notes_suffix = '.md'
 
 " EasyMotion  https://github.com/Lokaltog/vim-easymotion
 " ------------------------------------------------------------------------------
-" Override EasyMotion red with yellow
-hi clear EasyMotionTarget
-hi! EasyMotionTarget guifg=yellow
+" Override EasyMotion colorscheme
 
-" BufferLine
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
+hi link EasyMotionTarget2First MatchParen
+hi link EasyMotionTarget2Second MatchParen
+hi link EasyMotionMoveHL Search
+" allow enter or space to jump to first motion target
+let g:EasyMotion_enter_jump_first = 1
+let g:EasyMotion_space_jump_first = 1
+
+
+" Bufferline 
 " ------------------------------------------------------------------------------
+" status line integration
+let g:bufferline_echo = 0
+autocmd VimEnter *
+  \ let &statusline='%{bufferline#refresh_status()}'
+    \ .bufferline#get_status_string()
+
 let g:bufferline_echo = 1 " automatically echo to the command bar
 let g:bufferline_active_buffer_left = '[' " left side buffer separator symbol
 let g:bufferline_active_buffer_right = ']' " right side buffer separator symbol
 let g:bufferline_modified = '+' " symbol to denote that a buffer is modified
 let g:bufferline_show_bufnr = 1 " show buffer numbers
-
-
 " denotes the highlight group for inactive buffers when used in the statusline
 let g:bufferline_inactive_highlight = 'StatusLineNC'
 " denotes the highlight group for the active buffer when used in the statusline
