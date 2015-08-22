@@ -89,9 +89,6 @@ filetype indent on
 " Create dictionary for custom expansions  
 " set dictionary+=/Users/Sam/.vim/dict.txt
 
-"Map code completion to <leader>tab  
-"imap <leader><tab> <C-x><C-o>
-
 " Show options when tab-completing from the command line.
 set wildmenu
 " Show longest common sub-string on first tab, then cycle on subsequent tabs.
