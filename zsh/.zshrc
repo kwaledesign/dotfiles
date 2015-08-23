@@ -59,8 +59,10 @@ alias archetype='cd $HOME/Sites/Open-Source/Archetype'
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # This loads nvm
-#[ -s "/Users/sashley/.nvm/nvm.sh" ] && . "/Users/sashley/.nvm/nvm.sh" 
+[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" 
 
 # include Z, yo
 #. ~/z.sh
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
