@@ -2,7 +2,7 @@
 ZSH=$HOME/.oh-my-zsh
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
-export PATH=/usr/local/bin:/usr/local/ruby/bin:/usr/local/mysql/bin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/local/apache2/bin:/usr/local/git/bin:/usr/local/wkhtmltopdf/bin:$PATH 
+export PATH=/usr/local/bin:/usr/local/ruby/bin:/usr/local/mysql/bin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/local/apache2/bin:/usr/local/git/bin:/usr/local/wkhtmltopdf/bin:/.rvm/bin:$PATH 
 
 
 # Set name of the theme to load.
