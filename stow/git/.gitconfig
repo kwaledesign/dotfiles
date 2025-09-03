@@ -9,9 +9,12 @@
   diff = delta
   log = delta
   reflog = delta
+  show = delta
 [delta]
   navigate = true
   line-numbers = true
+  side-by-side = true
+  syntax-theme = "Solarized (dark)"
 [merge]
   conflictstyle = zdiff3
 [interactive]
