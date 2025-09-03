@@ -1,6 +1,3 @@
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-
 brew "git"
 brew "gh"
 brew "ripgrep"
