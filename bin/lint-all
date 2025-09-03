@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+npx eslint . || true
+ruff check . || true
+

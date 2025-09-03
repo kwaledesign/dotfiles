@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+# use project-local convex (preferred)
+pnpm convex dev || npx convex dev
+

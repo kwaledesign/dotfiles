@@ -1,0 +1,24 @@
+
+[user]
+  name = YOUR NAME
+  email = YOUR@EMAIL
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore_global
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+[delta]
+  navigate = true
+  line-numbers = true
+[merge]
+  conflictstyle = zdiff3
+[interactive]
+  diffFilter = delta --color-only
+[alias]
+  co = checkout
+  br = branch
+  cm = commit -m
+  lg = log --graph --decorate --pretty=oneline --abbrev-commit
+

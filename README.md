@@ -1,107 +1,107 @@
-# Dotfiles
+# kwaledesign/dotfiles (2025 modernization)
 
-*This is My Vim Config.  There Are Many Like It, But This One is Mine.*
+## Quick start (macOS + Warp + Zsh)
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || true
+brew bundle
+./scripts/bootstrap.sh
+```
+
+
+Then:
+
+Open Warp → Settings:
+
+Input: enable Vim keybindings
+
+Appearance: font JetBrains Mono Nerd Font, theme Solarized Dark
+
+nvim → plugins auto-install via lazy.nvim. Run :checkhealth.
+
+tmux → press prefix + I to install TPM plugins.
+
+docker compose -f stow/misc/docker/compose.yml up -d n8n → open http://localhost:5678
+
+Keybindings (Neovim)
+
+Telescope: <leader>ff files, <leader>fg live grep, <leader>fb buffers
+
+LSP: gd/gr goto/refs, K hover, <leader>rn rename, <leader>ca code action
+
+Format: <leader>f (Conform)
+
+Tests (neotest): <leader>tn nearest, <leader>tf file, <leader>ts summary, <leader>to output
+
+Notes
+
+Node toolchain via Volta; default Node 20; pnpm preferred, npm available
+
+Python via pyenv (3.12), CLI tools via pipx (black, ruff, pre-commit)
+
+Dotfiles linked via Stow
+
 
 ---
 
-Dotfiles, inlcuding my .vimrc, are managed with git and symlinks. Vim plugins are handled with [Pathogen](https://github.com/tpope/vim-pathogen) and [git-submodules](http://git-scm.com/docs/git-submodule).
+## 3) Apply and test (agent runbook)
 
-See also my [Vagrant Ubuntu Node VM](https://github.com/kwaledesign/vagrant_ubuntu_node_vm) and environment provisioning scripts that include other goodies like [vifm](http://vifm.info/), [tig](http://jonas.nitro.dk/tig/), etc...
+```bash
+# 1) Install & link
+brew bundle
+./scripts/bootstrap.sh
 
-## Installation:
-(running on both Ubuntu and OS X, YMMV on other systems)
+# 2) Open Warp, set Vim keys + Solarized Dark
+# 3) Neovim first launch
+nvim  # wait for lazy.nvim to install
+:checkhealth
 
-Clone dot files
-```
-cd ~/ && \
-git clone https://github.com/kwaledesign/dotfiles.git
-```
+# 4) tmux
+tmux
+# press prefix + I (capital i) to install TPM plugins
 
-Install pathogen [pathogen](https://github.com/tpope/vim-pathogen) - (manages the runtime path of the plugins)
-```
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-```
-
-Symlink .vimrc file and bundle directory
-```
-ln -s ./dotfiles/vim/.vimrc && \
-ln -s ~/dotfiles/vim/.vim/bundle/* ~/.vim/bundle/
+# 5) Docker
+docker compose -f stow/misc/docker/compose.yml up -d n8n
+open http://localhost:5678
 ```
 
-pull and update git submodules (vim plugins)
-```
-cd dotfiles/vim/.vim/bundle/ && \
-git submodule update --init && \
-git submodule foreach git pull origin master && \
-cd
-```
 
-Oh My Zsh!
-```
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-```
-symlink .zshrc
-```
-mv .zshrc .zshrc.old && \
-ln -s ~/dotfiles/zsh/.zshrc
-```
+Verify
 
-Yankring Plugin Config (needs a `tmp/file` with read/write permissions)
-```
-mkdir ~/.vim/tmp && \
-cd ~/.vim/tmp/ && \
-mkdir yankring-tmp/ && \
-cd yankring-tmp && \
-touch yankring_history_v2.txt && \
-cd
-```
-Set permissions on the `tmp/` directory (YMMV, I'm using vagrant...)
-```
-sudo chown vagrant ~/.vim/tmp && \
-sudo chmod 777 -R ~/vim/tmp
-```
+P10k prompt renders instantly; autosuggestions & syntax highlighting work
 
----
+direnv prompts on .envrc
 
-### Vim Plugins 
+In a TS/TSX file: hover/rename/diagnostics, Tailwind class hints
 
-* [YankRing](https://github.com/vim-scripts/YankRing.vim) - History for yanks, changes, deletes
-* [BufClose](https://github.com/vim-scripts/BufClose.vim) - close current
-  buffer, or a buffer by name
-* [ctrlp](https://github.com/kien/ctrlp.vim) - Fuzzy file, buffer, mru, tag, etc finder
-* [nerdtree](https://github.com/scrooloose/nerdtree) - A tree explorer plugin for vim.
-* [vim-easymotion](https://github.com/Lokaltog/vim-easymotion) - Vim motion
-  on speed!
-* [vim-autoclose](https://github.com/Townk/vim-autoclose) - enable an
-  auto-close chars feature
-* [vim-repeat](https://github.com/tpope/vim-repeat) - repeat.vim: enable repeating supported plugin maps with "."
-* [Syntastic](http://github.com/scrooloose/syntastic)
-* [Surround](http://github.com/tpope/vim-surround)
-* [nerdcommenter](https://github.com/scrooloose/nerdcommenter)
-* [Eunuch](http://github.com/tpope/vim-eunuch)
-* [Ack](http://github.com/mileszs/ack.vim)
-* [Fugitive](http://github.com/tpope/vim-fugitive)
-* [indentLine](http://github.com/Yggdroot/indentLine)
-* [Airline](http://github.com/bling/vim-airline)
-* [Bufferline](http://github.com/bling/vim-bufferline)
-* [Signify](http://github.com/mhinz/vim-signify)
-* [vim notes](https://github.com/xolox/vim-notes)
-* [Emmet Vim](https://github.com/mattn/emmet-vim/)
-* [Vitality](http://github.com/sjl/vitality.vim) - make tmux play nicely with vim and iterm2
-* [Vimux](https://github.com/benmills/vimux)
-* [vim grep](https://github.com/vim-scripts/grep.vim) 
-* [JavaScript Library Syntax](https://github.com/othree/javascript-libraries-syntax.vim)
+Save → formats (Prettier/Black). Save → lints (ESLint/Ruff)
 
-rember to run: `:Helptags`
+neotest runs Jest/Vitest/Pytest with the keymaps above
 
-To remove a Git Submodule:
+tmux mouse, yank, resurrect/continuum OK
 
-  1. Delete the relevant section from the `.gitmodules` file
-  2. Stage the changes `git add .gitmodules`
-  3. Delete the relevant section from `.git/config`
-  4. Run `git rm --cached path_to_submodule` (no trailing slash)
-  5. Run `rm -rf .git/modules/path_to_submodule`
-  6. Commit `git commit -m "Removed submodule"`
-  7. Delete the now untracked submodule file `rm -rf path_to_submodule`
+4) Legacy migration & cleanup (2nd commit)
+
+Your repo uses legacy Vim (Pathogen + submodules). Do this after you’re happy with the new setup:
+
+# Archive old trees rather than delete (easy rollback)
+git mv vim vim_legacy || true
+git mv zsh zsh_legacy || true
+
+# Remove submodule wiring if present
+# 1) edit .gitmodules and remove entries
+# 2) remove cached modules (example)
+# git rm --cached vim/bundle/whatever
+# rm -rf .git/modules/vim/bundle/whatever
+
+git add -A
+git commit -m "chore(legacy): archive old vim/zsh + remove submodule wiring"
+
+
+Nothing is deleted from disk until you approve — this just quarantines legacy configs.
+
+5) Done → open PR
+git add -A
+git commit -m "feat: 2025 modernization (Stow, Warp, Neovim, Volta, pnpm, tmux, Docker, neotest)"
+git push origin modernize-2025
 

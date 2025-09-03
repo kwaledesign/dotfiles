@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+pnpm dlx prettier -w "**/*.{ts,tsx,js,json,md,css}"
+black . || true
+
