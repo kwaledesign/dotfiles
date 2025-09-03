@@ -1,107 +1,170 @@
-# kwaledesign/dotfiles (2025 modernization)
+# Dotfiles (2025 modernization)
 
-## Quick start (macOS + Warp + Zsh)
+Modern setup for macOS: Warp + Zsh + Neovim with lazy.nvim, LSP/Treesitter, Conform, nvim-lint, neotest, tmux, and Docker. Dotfiles are linked with GNU Stow.
+
+## Requirements
+
+- macOS
+- Command Line Tools (once): `xcode-select --install`
+- Homebrew (if missing):
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+Note: On Apple Silicon, Homebrew is at /opt/homebrew; on Intel, it’s /usr/local.
+
+## Quick start (copy/paste)
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || true
+# 1) Clone and enter repo
+git clone https://github.com/kwaledesign/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+
+# 2) Install packages and apps
 brew bundle
+
+# 3) Bootstrap (Stow links, FZF bindings, Volta, pyenv+pipx)
 ./scripts/bootstrap.sh
+
+# 4) Finish shell setup
+exec zsh -l
+p10k configure        # generate ~/.p10k.zsh (prompt)
 ```
 
+Warp setup
+- Settings → Input → enable Vim keybindings
+- Settings → Appearance → Solarized Dark theme, JetBrains Mono Nerd Font
+- See stow/warp/README.md for suggested Workflows
 
-Then:
-
-Open Warp → Settings:
-
-Input: enable Vim keybindings
-
-Appearance: font JetBrains Mono Nerd Font, theme Solarized Dark
-
-nvim → plugins auto-install via lazy.nvim. Run :checkhealth.
-
-tmux → press prefix + I to install TPM plugins.
-
-docker compose -f stow/misc/docker/compose.yml up -d n8n → open http://localhost:5678
-
-Keybindings (Neovim)
-
-Telescope: <leader>ff files, <leader>fg live grep, <leader>fb buffers
-
-LSP: gd/gr goto/refs, K hover, <leader>rn rename, <leader>ca code action
-
-Format: <leader>f (Conform)
-
-Tests (neotest): <leader>tn nearest, <leader>tf file, <leader>ts summary, <leader>to output
-
-Notes
-
-Node toolchain via Volta; default Node 20; pnpm preferred, npm available
-
-Python via pyenv (3.12), CLI tools via pipx (black, ruff, pre-commit)
-
-Dotfiles linked via Stow
-
-
----
-
-## 3) Apply and test (agent runbook)
-
+Neovim first run
 ```bash
-# 1) Install & link
-brew bundle
-./scripts/bootstrap.sh
+nvim   # lazy.nvim auto-installs; then run :checkhealth
+```
 
-# 2) Open Warp, set Vim keys + Solarized Dark
-# 3) Neovim first launch
-nvim  # wait for lazy.nvim to install
-:checkhealth
-
-# 4) tmux
 tmux
-# press prefix + I (capital i) to install TPM plugins
+```bash
+tmux  # inside: press prefix + I to install TPM plugins
+```
 
-# 5) Docker
+Docker (optional, n8n example)
+```bash
 docker compose -f stow/misc/docker/compose.yml up -d n8n
 open http://localhost:5678
 ```
 
+direnv (per project)
+```bash
+cd your/project
+direnv allow
+```
 
-Verify
+## What gets installed (Brewfile highlights)
 
-P10k prompt renders instantly; autosuggestions & syntax highlighting work
+- CLI: git, gh, ripgrep, fd, fzf, bat, jq, yq, delta, direnv, tmux, stow, httpie, glow, pyenv, pipx, coreutils, gnupg, just, volta
+- Apps: warp, docker, font-jetbrains-mono-nerd-font
+- Editor: neovim
 
-direnv prompts on .envrc
+Toolchains
+- Node via Volta (Node 20, pnpm default, npm available)
+- Python via pyenv (3.12) + pipx (for black, ruff, pre-commit)
 
-In a TS/TSX file: hover/rename/diagnostics, Tailwind class hints
+## Layout (Stow-managed)
 
-Save → formats (Prettier/Black). Save → lints (ESLint/Ruff)
+```
+dotfiles/
+  Brewfile
+  scripts/bootstrap.sh
+  stow/
+    zsh/.zshrc
+    zsh/.p10k.zsh               # created by `p10k configure`
+    nvim/.config/nvim/...       # init.lua, plugins, LSP, Telescope, Treesitter, etc.
+    tmux/.tmux.conf
+    git/.gitconfig
+    git/.gitignore_global
+    git/.editorconfig
+    warp/README.md              # suggested Warp Workflows
+    misc/docker/compose.yml
+    misc/docker/README.md
+  bin/
+    dev-web      # pnpm dev
+    dev-convex   # pnpm convex dev (or npx convex dev)
+    dev-n8n      # start n8n via Docker Compose
+    grep-code    # ripgrep with sane defaults
+    fmt-all      # prettier + black
+    lint-all     # eslint + ruff
+```
 
-neotest runs Jest/Vitest/Pytest with the keymaps above
+Linking with Stow
+- Bootstrap already runs `stow */` from stow/. If you add new packages, re-run:
+  cd stow && stow */
 
-tmux mouse, yank, resurrect/continuum OK
+## Neovim features
 
-4) Legacy migration & cleanup (2nd commit)
+- Colorscheme: Solarized Dark
+- Telescope: <leader>ff files, <leader>fg live grep, <leader>fb buffers, <leader>fh help
+- LSP (TS/JS, Tailwind, HTML/CSS, JSON/YAML, Python)
+  - gd goto def, gr refs, K hover, <leader>rn rename, <leader>ca code action
+- Treesitter for TSX/TS/JS/JSON/CSS/HTML/Lua/Python/Markdown
+- Editing QoL: autopairs, surround, comments, indent guides, todo-comments, autotag
+- Git: gitsigns
+- Format: <leader>f via Conform
+  - JS/TS/TSX/MD/JSON/YAML → Prettier (prettierd preferred), Python → Black
+- Lint on save: ESLint (JS/TS), Ruff (Python), markdownlint (MD)
+- Tests: neotest
+  - <leader>tn nearest, <leader>tf file, <leader>ts summary, <leader>to output
+- Optional: vim-tmux-navigator
 
-Your repo uses legacy Vim (Pathogen + submodules). Do this after you’re happy with the new setup:
+## Zsh & Oh My Zsh
 
-# Archive old trees rather than delete (easy rollback)
-git mv vim vim_legacy || true
-git mv zsh zsh_legacy || true
+- Auto-installs OMZ if missing
+- Powerlevel10k prompt (run `p10k configure`)
+- Plugins: git, fzf, zsh-autosuggestions, zsh-syntax-highlighting, direnv
+- Aliases: v (nvim), ta (attach/start tmux), ll, dcu/dcd, etc.
 
-# Remove submodule wiring if present
-# 1) edit .gitmodules and remove entries
-# 2) remove cached modules (example)
-# git rm --cached vim/bundle/whatever
-# rm -rf .git/modules/vim/bundle/whatever
+## tmux
 
-git add -A
-git commit -m "chore(legacy): archive old vim/zsh + remove submodule wiring"
+- Truecolor, mouse, large history, base index 1
+- TPM plugins: sensible, resurrect, continuum, yank
+- Install once: prefix + I (capital i)
 
+## Docker & Compose
 
-Nothing is deleted from disk until you approve — this just quarantines legacy configs.
+- Prefer Debian/Ubuntu slim images (`node:20-bookworm-slim`, `python:3.12-slim`)
+- Compose v2 syntax (`docker compose ...`)
+- Example: n8n service provided
 
-5) Done → open PR
-git add -A
-git commit -m "feat: 2025 modernization (Stow, Warp, Neovim, Volta, pnpm, tmux, Docker, neotest)"
-git push origin modernize-2025
+## Git defaults
+
+- delta as pager (side-by-side, Solarized) for diff/log/show
+- global ignore, editorconfig
+- Set your identity in stow/git/.gitconfig:
+  - user.name, user.email
+
+## Troubleshooting
+
+- Docker cask: If install fails, launch Docker.app once and retry `brew install --cask docker` or `brew bundle`.
+- Treesitter/LSP tool builds: Install Xcode CLTs (`xcode-select --install`).
+- Intel Macs: If `eval "$(/opt/homebrew/bin/brew shellenv)"` fails, use `/usr/local/bin/brew`.
+
+## Verification checklist
+
+- brew bundle completes without errors
+- Stow links are present in $HOME (bootstrap does this)
+- Warp: Solarized Dark + Nerd Font, Vim mode on
+- nvim: plugins auto-installed; :checkhealth green
+- LSP, formatting, linting OK in TS/TSX/MD/Python
+- neotest runs Jest/Vitest/Pytest with keymaps
+- tmux TPM plugins installed; mouse/scroll/history OK
+- docker compose up -d n8n exposes http://localhost:5678
+
+## Migration notes (legacy)
+
+- Pathogen + git submodules are deprecated in this repo
+- Legacy plugin set replaced by Telescope, Treesitter, LSP, Conform, nvim-lint, Gitsigns
+- Old YankRing temp-dir steps removed
+- Manual .vimrc/.vim/bundle symlinks replaced by Stow
+
+## Contributing / Personalization
+
+- Adjust plugins in stow/nvim/.config/nvim/lua/plugins.lua
+- Add/remove Stow packages under stow/
+- Keep secrets in .envrc (direnv) or your secret manager
 
